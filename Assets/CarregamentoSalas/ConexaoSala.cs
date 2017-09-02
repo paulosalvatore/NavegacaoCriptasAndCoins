@@ -45,10 +45,7 @@ public class ConexaoSala : MonoBehaviour
 		{
 			ExibirSalas();
 
-			if (ChecarDistanciaConexao())
-				OcultaConexaoSala();
-			else
-				ExibeConexaoSala();
+			OcultaConexaoSala();
 		}
 	}
 
@@ -81,17 +78,6 @@ public class ConexaoSala : MonoBehaviour
 	public void OcultaConexaoSala()
 	{
 		meshRenderer.enabled = false;
-	}
-
-	private bool ChecarDistanciaConexao()
-	{
-		float distancia =
-			Vector3.Distance(
-				transform.position,
-				JogadorSalas.instancia.transform.position
-			);
-
-		return distancia <= 1.5f;
 	}
 
 	private void AtualizarRotacao()
