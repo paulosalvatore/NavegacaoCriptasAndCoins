@@ -51,7 +51,12 @@ public class Sala : MonoBehaviour
 	public static Sala PegarSala(Transform objeto)
 	{
 		while (objeto.parent != null)
+		{
 			objeto = objeto.parent;
+
+			if (objeto.GetComponent<Sala>())
+				break;
+		}
 
 		return objeto.GetComponent<Sala>();
 	}
