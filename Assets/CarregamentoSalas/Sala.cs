@@ -6,7 +6,7 @@ public class Sala : MonoBehaviour
 {
 	internal List<ConexaoSala> conexoesSala = new List<ConexaoSala>();
 
-	internal float id;
+	internal int id;
 
 	private void Awake()
 	{
@@ -19,11 +19,11 @@ public class Sala : MonoBehaviour
 			conexoesSala.Add(conexaoSala);
 	}
 
-	public static float PegarIdSala(string nomeSala)
+	public static int PegarIdSala(string nomeSala)
 	{
 		nomeSala = nomeSala.Replace("Sala (", "").Replace(")", "");
 
-		return float.Parse(nomeSala);
+		return int.Parse(nomeSala);
 	}
 
 	public static Sala PegarSala(string salaId)
@@ -46,5 +46,13 @@ public class Sala : MonoBehaviour
 
 		foreach (ConexaoSala conexaoSala in conexoesSala)
 			conexaoSala.OcultaConexaoSala();
+	}
+
+	public static Sala PegarSala(Transform objeto)
+	{
+		while (objeto.parent != null)
+			objeto = objeto.parent;
+
+		return objeto.GetComponent<Sala>();
 	}
 }

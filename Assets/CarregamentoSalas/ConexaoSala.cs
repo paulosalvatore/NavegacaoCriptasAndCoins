@@ -101,7 +101,7 @@ public class ConexaoSala : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, up, out hitUp, 10, 1 << 8))
 		{
-			if (hitUp.transform.parent.name == JogadorSalas.instancia.salaAtual.name)
+			if (Sala.PegarSala(hitUp.transform).name == JogadorSalas.instancia.salaAtual.name)
 				transform.eulerAngles = new Vector3(
 					rotacaoPadrao.x,
 					180,
@@ -111,7 +111,7 @@ public class ConexaoSala : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, down, out hitDown, 10, 1 << 8))
 		{
-			if (hitDown.transform.parent.name == JogadorSalas.instancia.salaAtual.name)
+			if (Sala.PegarSala(hitDown.transform).name == JogadorSalas.instancia.salaAtual.name)
 				transform.eulerAngles = new Vector3(
 					rotacaoPadrao.x,
 					0,
@@ -121,7 +121,7 @@ public class ConexaoSala : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, left, out hitLeft, 10, 1 << 8))
 		{
-			if (hitLeft.transform.parent.name == JogadorSalas.instancia.salaAtual.name)
+			if (Sala.PegarSala(hitLeft.transform).name == JogadorSalas.instancia.salaAtual.name)
 				transform.eulerAngles = new Vector3(
 					rotacaoPadrao.x,
 					90,
@@ -131,7 +131,7 @@ public class ConexaoSala : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, right, out hitRight, 10, 1 << 8))
 		{
-			if (hitRight.transform.parent.name == JogadorSalas.instancia.salaAtual.name)
+			if (Sala.PegarSala(hitRight.transform).name == JogadorSalas.instancia.salaAtual.name)
 				transform.eulerAngles = new Vector3(
 					rotacaoPadrao.x,
 					270,

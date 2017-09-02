@@ -27,7 +27,7 @@ public class JogadorSalas : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, down, out hit, 100, 1 << 8))
 		{
-			salaAtual = hit.transform.parent.GetComponent<Sala>();
+			salaAtual = Sala.PegarSala(hit.transform);
 
 			if (salaAnterior != salaAtual)
 				AtualizarSalas();
